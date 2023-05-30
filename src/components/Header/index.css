@@ -1,0 +1,44 @@
+.header-container {
+  background-color: #272727;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-logo {
+  width: 150px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 6px;
+}
+
+.nav-link {
+  color: #f8fafc;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.logout-btn {
+  background-color: #6366f1;
+  color: #f8fafc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}

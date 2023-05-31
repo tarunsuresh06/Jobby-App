@@ -1,11 +1,36 @@
 .not-found-bg-container {
+  min-height: 100vh;
   background-color: #000000;
   color: #f8fafc;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .not-found-image {
   width: 300px;
+}
+
+.not-found-title {
+  font-size: 22px;
+}
+
+.not-found-subtitle {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 576px) {
+  .not-found-image {
+    width: 400px;
+  }
+
+  .not-found-title {
+    font-size: 33px;
+  }
+
+  .not-found-subtitle {
+    font-size: 16px;
+  }
+
 }

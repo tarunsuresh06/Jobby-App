@@ -1,0 +1,56 @@
+.job-item {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #272727;
+  border-radius: 15px;
+  font-family: 'Roboto';
+  max-width: 600px;
+}
+
+.job-item-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.job-item-img {
+  width: 40px;
+  margin-right: 20px;
+}
+
+.job-title {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 22px;
+}
+
+.job-info-text {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 15px 0 7px;
+}
+
+.job-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-package {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.job-body-heading {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.job-description {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+hr {
+  border-color: #64748b;
+}

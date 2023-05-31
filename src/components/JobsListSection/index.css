@@ -1,0 +1,34 @@
+.input-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.search-jobs-input {
+  background-color: #000000;
+  border: 1px solid #2c364c;
+  color: #f8fafc;
+  border-right: 0;
+  font-size: 16px;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.search-jobs-btn {
+  background-color: #272727;
+  border: 1px solid #2c364c;
+  padding: 3px 15px;
+  border-left: 0;
+}
+
+.jobs-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.loader-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,12 +1,11 @@
 .not-found-bg-container {
-    background-color: #000000;
-    color: #f8fafc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .not-found-image {
-    width: 300px;
-  }
-  
+  background-color: #000000;
+  color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-image {
+  width: 300px;
+}

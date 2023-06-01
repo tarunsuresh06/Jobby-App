@@ -5,6 +5,7 @@ import Loader from 'react-loader-spinner'
 import {AiOutlineSearch} from 'react-icons/ai'
 
 import JobItem from '../JobItem'
+import FilterSection from '../FilterSection'
 
 import './index.css'
 
@@ -20,6 +21,7 @@ class JobsListSection extends Component {
     jobsList: [],
     searchJobsInput: '',
     apiStatus: apiStatusConstants.initial,
+    employmentTypes: [],
   }
 
   componentDidMount() {
@@ -47,11 +49,13 @@ class JobsListSection extends Component {
   getJobsList = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
 
-    const {searchJobsInput} = this.state
+    const {searchJobsInput, employmentTypes} = this.state
+
+    const employmentTypesString = employmentTypes.join(',')
 
     const token = Cookies.get('jwt_token')
 
-    const url = `https://apis.ccbp.in/jobs?search=${searchJobsInput}`
+    const url = `https://apis.ccbp.in/jobs?search=${searchJobsInput}&employment_type=${employmentTypesString}`
 
     const options = {
       method: 'GET',
@@ -67,6 +71,31 @@ class JobsListSection extends Component {
       this.onSuccessApiCall(fetchedData)
     } else {
       console.log(fetchedData)
+    }
+  }
+
+  selectEmploymentType = event => {
+    const {value, checked} = event.target
+    const {employmentTypes} = this.state
+
+    if (checked) {
+      this.setState(
+        prevState => ({
+          employmentTypes: [...prevState.employmentTypes, value],
+        }),
+        this.getJobsList,
+      )
+    } else {
+      const updatedTypes = employmentTypes.filter(
+        eachType => eachType !== value,
+      )
+
+      this.setState(
+        {
+          employmentTypes: updatedTypes,
+        },
+        this.getJobsList,
+      )
     }
   }
 
@@ -136,7 +165,16 @@ class JobsListSection extends Component {
   }
 
   render() {
-    return this.renderJobsListView()
+    const {employmentTypes} = this.state
+    return (
+      <div className="responsive-container">
+        <FilterSection
+          employmentTypes={employmentTypes}
+          selectEmploymentType={this.selectEmploymentType}
+        />
+        {this.renderJobsListView()}
+      </div>
+    )
   }
 }
 

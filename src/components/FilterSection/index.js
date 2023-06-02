@@ -1,3 +1,5 @@
+import Profile from '../Profile'
+
 import './index.css'
 
 const employmentTypesList = [
@@ -58,6 +60,8 @@ const FilterSection = props => {
   return (
     <div className="filter-bg-container">
       {renderSearchJobsInput('mobile')}
+
+      <Profile />
 
       <hr />
 

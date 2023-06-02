@@ -51,6 +51,7 @@
 
 .mobile {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {

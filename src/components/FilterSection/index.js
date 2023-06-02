@@ -39,10 +39,19 @@ const salaryRangesList = [
 ]
 
 const FilterSection = props => {
-  const {employmentTypes, selectEmploymentType} = props
+  const {
+    employmentTypes,
+    salaryRange,
+    selectEmploymentType,
+    selectSalaryRange,
+  } = props
 
   const onChangeEmploymentType = event => {
     selectEmploymentType(event)
+  }
+
+  const onChangeSalaryRange = event => {
+    selectSalaryRange(event)
   }
 
   return (
@@ -90,8 +99,8 @@ const FilterSection = props => {
               type="radio"
               value={eachItem.salaryRangeId}
               id={eachItem.salaryRangeId}
-              checked={employmentTypes.includes(eachItem.salaryRangeId)}
-              onChange={onChangeEmploymentType}
+              checked={salaryRange === eachItem.salaryRangeId}
+              onChange={onChangeSalaryRange}
             />
             <label
               htmlFor={eachItem.salaryRangeId}

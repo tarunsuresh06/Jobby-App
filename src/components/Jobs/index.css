@@ -3,4 +3,8 @@
   background-color: #000000;
   color: #ffffff;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

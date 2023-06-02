@@ -39,3 +39,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (min-width: 576px) {
+  .responsive-container {
+    max-width: 1110px;
+    flex-direction: row;
+  }
+}

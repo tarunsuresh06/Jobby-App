@@ -22,6 +22,7 @@ class JobsListSection extends Component {
     searchJobsInput: '',
     apiStatus: apiStatusConstants.initial,
     employmentTypes: [],
+    salaryRange: '',
   }
 
   componentDidMount() {
@@ -49,13 +50,13 @@ class JobsListSection extends Component {
   getJobsList = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
 
-    const {searchJobsInput, employmentTypes} = this.state
+    const {searchJobsInput, employmentTypes, salaryRange} = this.state
 
     const employmentTypesString = employmentTypes.join(',')
 
     const token = Cookies.get('jwt_token')
 
-    const url = `https://apis.ccbp.in/jobs?search=${searchJobsInput}&employment_type=${employmentTypesString}`
+    const url = `https://apis.ccbp.in/jobs?search=${searchJobsInput}&employment_type=${employmentTypesString}&minimum_package=${salaryRange}`
 
     const options = {
       method: 'GET',
@@ -99,6 +100,11 @@ class JobsListSection extends Component {
     }
   }
 
+  selectSalaryRange = event => {
+    const {value} = event.target
+    this.setState({salaryRange: value}, this.getJobsList)
+  }
+
   onChangeSearchJobs = event => {
     this.setState({searchJobsInput: event.target.value})
   }
@@ -133,14 +139,14 @@ class JobsListSection extends Component {
     const {jobsList} = this.state
 
     return (
-      <>
+      <div>
         {this.renderSearchJobsInput()}
         <ul className="jobs-list">
           {jobsList.map(jobDetails => (
             <JobItem key={jobDetails.id} jobDetails={jobDetails} />
           ))}
         </ul>
-      </>
+      </div>
     )
   }
 
@@ -165,12 +171,14 @@ class JobsListSection extends Component {
   }
 
   render() {
-    const {employmentTypes} = this.state
+    const {employmentTypes, salaryRange} = this.state
     return (
       <div className="responsive-container">
         <FilterSection
           employmentTypes={employmentTypes}
+          salaryRange={salaryRange}
           selectEmploymentType={this.selectEmploymentType}
+          selectSalaryRange={this.selectSalaryRange}
         />
         {this.renderJobsListView()}
       </div>

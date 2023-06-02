@@ -82,7 +82,7 @@ class Profile extends Component {
 
     return (
       <div className="profile-card">
-        <img className="profile-img" src={profileImgUrl} alt={name} />
+        <img className="profile-img" src={profileImgUrl} alt="profile" />
         <h1 className="profile-name">{name}</h1>
         <p className="profile-bio">{shortBio}</p>
       </div>

@@ -20,7 +20,7 @@ const JobItem = props => {
   return (
     <li className="job-item">
       <div className="job-item-header">
-        <img className="job-item-img" src={companyLogoUrl} alt={title} />
+        <img className="job-item-img" src={companyLogoUrl} alt="company logo" />
         <div className="job-header-content">
           <h1 className="job-title">{title}</h1>
           <div className="responsive-box">

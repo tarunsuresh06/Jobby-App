@@ -23,17 +23,24 @@ const JobItem = props => {
         <img className="job-item-img" src={companyLogoUrl} alt={title} />
         <div className="job-header-content">
           <h1 className="job-title">{title}</h1>
-          <AiFillStar color="#fbbf24" size={16} />
-          <span className="job-info-text">{rating}</span>
+          <div className="responsive-box">
+            <AiFillStar color="#fbbf24" size={16} />
+            <span className="job-info-text">{rating}</span>
+          </div>
         </div>
       </div>
 
       <div className="job-info">
-        <div>
-          <BsFillBriefcaseFill size={16} />
-          <span className="job-info-text">{location}</span>
-          <MdLocationOn size={16} />
-          <span className="job-info-text">{employmentType}</span>
+        <div className="responsive-box">
+          <div className="responsive-box">
+            <MdLocationOn size={16} />
+            <p className="job-info-text">{location}</p>
+          </div>
+
+          <div className="responsive-box">
+            <BsFillBriefcaseFill size={16} />
+            <p className="job-info-text">{employmentType}</p>
+          </div>
         </div>
         <p className="job-package">{packagePerAnnum}</p>
       </div>

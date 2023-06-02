@@ -44,6 +44,7 @@ const FilterSection = props => {
     salaryRange,
     selectEmploymentType,
     selectSalaryRange,
+    renderSearchJobsInput,
   } = props
 
   const onChangeEmploymentType = event => {
@@ -56,6 +57,8 @@ const FilterSection = props => {
 
   return (
     <div className="filter-bg-container">
+      {renderSearchJobsInput('mobile')}
+
       <hr />
 
       <h1 className="filter-heading">Type of Employment</h1>

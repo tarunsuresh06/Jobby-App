@@ -5,20 +5,21 @@
   align-items: flex-start;
 }
 
-.input-box {
+.search-bar {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
 }
 
 .search-jobs-input {
-  background-color: #000000;
+  background-color: #121212;
   border: 1px solid #2c364c;
   color: #f8fafc;
   border-right: 0;
   font-size: 16px;
   outline: none;
   padding: 5px 10px;
+  width: 100%;
 }
 
 .search-jobs-btn {
@@ -26,6 +27,10 @@
   border: 1px solid #2c364c;
   padding: 3px 15px;
   border-left: 0;
+}
+
+.job-list-container {
+  width: 100%;
 }
 
 .jobs-list {
@@ -40,9 +45,26 @@
   align-items: center;
 }
 
-@media screen and (min-width: 576px) {
+.desktop {
+  display: none;
+}
+
+.mobile {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
   .responsive-container {
     max-width: 1110px;
     flex-direction: row;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
+    max-width: 400px;
   }
 }

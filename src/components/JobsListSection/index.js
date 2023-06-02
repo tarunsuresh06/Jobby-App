@@ -113,10 +113,10 @@ class JobsListSection extends Component {
     this.getJobsList()
   }
 
-  renderSearchJobsInput = () => {
+  renderSearchJobsInput = mode => {
     const {searchJobsInput} = this.state
     return (
-      <div className="input-box">
+      <div className={`search-bar ${mode}`}>
         <input
           className="search-jobs-input"
           type="text"
@@ -139,8 +139,8 @@ class JobsListSection extends Component {
     const {jobsList} = this.state
 
     return (
-      <div>
-        {this.renderSearchJobsInput()}
+      <div className="job-list-container">
+        {this.renderSearchJobsInput('desktop')}
         <ul className="jobs-list">
           {jobsList.map(jobDetails => (
             <JobItem key={jobDetails.id} jobDetails={jobDetails} />
@@ -179,6 +179,7 @@ class JobsListSection extends Component {
           salaryRange={salaryRange}
           selectEmploymentType={this.selectEmploymentType}
           selectSalaryRange={this.selectSalaryRange}
+          renderSearchJobsInput={this.renderSearchJobsInput}
         />
         {this.renderJobsListView()}
       </div>

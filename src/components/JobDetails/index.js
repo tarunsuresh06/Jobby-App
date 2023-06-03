@@ -92,35 +92,30 @@ class JobDetails extends Component {
     }
   }
 
-  renderFailureView = () => {
-    const {match} = this.props
-    const {params} = match
-    const {id} = params
-    return (
-      <div className="job-item-error-view-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
-          alt="failure view"
-          className="job-item-failure-img"
-        />
-        <h1 className="job-item-failure-heading-text">
-          Oops! Something Went Wrong
-        </h1>
-        <p className="job-item-failure-description">
-          We cannot seem to find the page you are looking for
-        </p>
+  renderFailureView = () => (
+    <div className="job-item-error-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="job-item-failure-img"
+      />
+      <h1 className="job-item-failure-heading-text">
+        Oops! Something Went Wrong
+      </h1>
+      <p className="job-item-failure-description">
+        We cannot seem to find the page you are looking for
+      </p>
 
-        <button
-          type="button"
-          data-testid="button"
-          className="job-item-failure-button"
-          onClick={this.getJobData}
-        >
-          Retry
-        </button>
-      </div>
-    )
-  }
+      <button
+        type="button"
+        data-testid="button"
+        className="job-item-failure-button"
+        onClick={this.getJobData}
+      >
+        Retry
+      </button>
+    </div>
+  )
 
   renderLoadingView = () => (
     <div className="job-item-loader-container" data-testid="loader">

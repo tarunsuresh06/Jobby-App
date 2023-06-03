@@ -113,13 +113,34 @@ class JobsListSection extends Component {
     this.getJobsList()
   }
 
+  renderFailureView = () => (
+    <div className="jobs-error-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="jobs-failure-img"
+      />
+      <h1 className="jobs-failure-heading-text">Oops! Something Went Wrong</h1>
+      <p className="jobs-failure-description">
+        We cannot seem to find the page you are looking for
+      </p>
+      <button
+        type="button"
+        className="jobs-failure-button"
+        onClick={this.getJobsList}
+      >
+        Retry
+      </button>
+    </div>
+  )
+
   renderSearchJobsInput = mode => {
     const {searchJobsInput} = this.state
     return (
       <div className={`search-bar ${mode}`}>
         <input
           className="search-jobs-input"
-          type="text"
+          type="search"
           placeholder="Search"
           value={searchJobsInput}
           onChange={this.onChangeSearchJobs}
@@ -127,6 +148,7 @@ class JobsListSection extends Component {
         <button
           className="search-jobs-btn"
           type="button"
+          data-testid="searchButton"
           onClick={this.onClickSearchJobs}
         >
           <AiOutlineSearch color="#f8fafc" size={20} />
@@ -138,7 +160,9 @@ class JobsListSection extends Component {
   renderJobsList = () => {
     const {jobsList} = this.state
 
-    return (
+    const isJobsAvailable = jobsList.length > 0
+
+    return isJobsAvailable ? (
       <div className="job-list-container">
         {this.renderSearchJobsInput('desktop')}
         <ul className="jobs-list">
@@ -146,6 +170,18 @@ class JobsListSection extends Component {
             <JobItem key={jobDetails.id} jobDetails={jobDetails} />
           ))}
         </ul>
+      </div>
+    ) : (
+      <div className="no-jobs-view">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+          className="no-jobs-img"
+          alt="no jobs"
+        />
+        <h1 className="no-jobs-heading">No Jobs Found</h1>
+        <p className="no-jobs-description">
+          We could not find any jobs. Try other filters.
+        </p>
       </div>
     )
   }
@@ -160,10 +196,12 @@ class JobsListSection extends Component {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
-      case 'SUCCESS':
+      case apiStatusConstants.success:
         return this.renderJobsList()
-      case 'IN_PROGRESS':
+      case apiStatusConstants.inProgress:
         return this.renderLoader()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
 
       default:
         return null

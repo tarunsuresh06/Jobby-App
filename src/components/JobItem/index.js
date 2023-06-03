@@ -33,7 +33,7 @@ const JobItem = props => {
             <h1 className="job-title">{title}</h1>
             <div className="responsive-box">
               <AiFillStar color="#fbbf24" size={16} />
-              <span className="job-info-text">{rating}</span>
+              <p className="job-info-text">{rating}</p>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const JobItem = props => {
         <hr />
 
         <div className="job-body">
-          <p className="job-body-heading">Description</p>
+          <h1 className="job-body-heading">Description</h1>
           <p className="job-description">{jobDescription}</p>
         </div>
       </Link>

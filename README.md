@@ -14,5 +14,5 @@ Developed a comprehensive job search solution, Jobby App.
 
  **Sample User Credentials**
 
-Username: rahul
+Username: rahul <br />
 Password: rahul@2021

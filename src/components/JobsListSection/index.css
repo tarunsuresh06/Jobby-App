@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
 }
 
 .search-bar {
@@ -54,12 +55,44 @@
   margin-bottom: 20px;
 }
 
+.jobs-failure-button {
+  background-color: #6366f1;
+  color: #f8fafc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.jobs-failure-img {
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.jobs-failure-heading {
+  font-size: 24px;
+}
+
 .jobs-error-view-container {
   height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.no-jobs-img {
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.no-jobs-heading {
+  font-size: 24px;
 }
 
 .no-jobs-view {

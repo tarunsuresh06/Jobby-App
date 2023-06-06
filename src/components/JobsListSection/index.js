@@ -71,7 +71,9 @@ class JobsListSection extends Component {
     if (response.ok) {
       this.onSuccessApiCall(fetchedData)
     } else {
-      console.log(fetchedData)
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
   }
 
@@ -120,7 +122,7 @@ class JobsListSection extends Component {
         alt="failure view"
         className="jobs-failure-img"
       />
-      <h1 className="jobs-failure-heading-text">Oops! Something Went Wrong</h1>
+      <h1 className="jobs-failure-heading">Oops! Something Went Wrong</h1>
       <p className="jobs-failure-description">
         We cannot seem to find the page you are looking for
       </p>
@@ -163,14 +165,11 @@ class JobsListSection extends Component {
     const isJobsAvailable = jobsList.length > 0
 
     return isJobsAvailable ? (
-      <div className="job-list-container">
-        {this.renderSearchJobsInput('desktop')}
-        <ul className="jobs-list">
-          {jobsList.map(jobDetails => (
-            <JobItem key={jobDetails.id} jobDetails={jobDetails} />
-          ))}
-        </ul>
-      </div>
+      <ul className="jobs-list">
+        {jobsList.map(jobDetails => (
+          <JobItem key={jobDetails.id} jobDetails={jobDetails} />
+        ))}
+      </ul>
     ) : (
       <div className="no-jobs-view">
         <img
@@ -219,7 +218,10 @@ class JobsListSection extends Component {
           selectSalaryRange={this.selectSalaryRange}
           renderSearchJobsInput={this.renderSearchJobsInput}
         />
-        {this.renderJobsListView()}
+        <div className="job-list-container">
+          {this.renderSearchJobsInput('desktop')}
+          {this.renderJobsListView()}
+        </div>
       </div>
     )
   }

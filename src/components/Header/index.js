@@ -12,7 +12,7 @@ const Header = props => {
 
     Cookies.remove('jwt_token')
 
-    history.replace('/')
+    history.replace('/login')
   }
 
   const renderDesktopView = () => (
